@@ -19,11 +19,19 @@ function App() {
   // const [subject, setSubject] = useState('');
   // const [message, setMessage] = useState('');
   // const [responseMessage, setResponseMessage] = useState('');
-
+  
   const handleSubmit = async (event) => {
     event.preventDefault();  // Empêche le rechargement de la page
   };
 
+
+    // Fonction pour gérer le défilement fluide
+    const scrollToTop = () => {
+      const element = document.getElementById('Welcomme'); // Cibler l'élément par ID
+      if (element) {
+        element.scrollIntoView({ behavior: 'smooth' }); // Défilement fluide
+      }
+    };
 
   const { t, i18n } = useTranslation();
 
@@ -44,15 +52,14 @@ function App() {
                     <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#navbar-menu">
                         <i class="fa fa-bars"></i>
                     </button>
-                    <a class="navbar-brand" href="index.html">AMAL</a> 
+                    <a class="navbar-brand" href="index.html">
+                    {/* <img src="images/about/Amal1.png" alt="logoAmal" className='ImageLogo'/> */}
+                    </a> 
                     <div className='style'>
                           
                           
                           
-            <select className='changeLanguage-btn' onChange={(e) => changeLanguage(e.target.value)}> 
-                <option value="fr">Français</option>
-                <option value="en">English</option> 
-            </select>
+           
         </div>
                 </div>
                
@@ -65,6 +72,28 @@ function App() {
                         <li class="smooth-menu"><a href="#experience"><span style={{fontWeight:"bold"}}>{t('Expérience')}</span></a></li>
                         <li class="smooth-menu"><a href="#portfolio"><span style={{fontWeight:"bold"}}>Portfolio</span></a></li>
                         <li class="smooth-menu"><a href="#contact"><span style={{fontWeight:"bold"}}>Contact</span></a></li>
+                        <li style={{paddingTop : "2%"}}> 
+                          {/* <select className='changeLanguage-btn' onChange={(e) => changeLanguage(e.target.value)}> 
+                              <option value="fr">Français</option>
+                              <option value="en">English</option> 
+                          </select> */}
+                          <div className="language-selector">
+                          <button 
+                              className="language-btn" 
+                              onClick={() => changeLanguage("fr")}
+                          >
+                              <span className="flag-icon flag-icon-fr"></span> {/* Drapeau de la France */}
+                          </button>
+                            
+                          <button 
+                              className="language-btn" 
+                              onClick={() => changeLanguage("en")}
+                          >
+                              <span className="flag-icon flag-icon-us"></span> {/* Drapeau des États-Unis */}
+                          </button>
+                      </div>
+
+                       </li>
                     </ul>
                 </div>
             </div>
@@ -99,7 +128,7 @@ function App() {
 </div>
   </section>
   
-  <section id="profiles" class="about" style={{ zIndex: 2, color: 'white', textAlign: 'center', position: 'relative', backgroundColor : "#f9fbfd" }} >
+  <section id="profiles" class="about" style={{ zIndex: 2, color: 'white', position: 'relative', backgroundColor : "#f9fbfd" }} >
     <div class="section-heading text-center">
       <h2>Profile</h2>
     </div>
@@ -166,7 +195,7 @@ function App() {
     </div>
   </section>
 
-  <section id="about" class="profiles" style={{ zIndex: 2, color: 'white', textAlign: 'center', position: 'relative', backgroundColor : "#f9fbfd" }}>
+  <section id="about" class="profiles" style={{ zIndex: 2, color: 'white', position: 'relative', backgroundColor : "#f9fbfd" }}>
     <div class="profiles-details">
       <div class="section-heading text-center">
         <h2>{t('SurMoi')}</h2>
@@ -296,7 +325,7 @@ function App() {
 
   </section>
 
-  <section id="education" class="education" style={{ zIndex: 2, color: 'white', textAlign: 'center', position: 'relative', backgroundColor : "#f9fbfd" }}>
+  <section id="education" class="education" style={{ zIndex: 2, color: 'white', position: 'relative', backgroundColor : "#f9fbfd" }}>
     <div class="section-heading text-center">
       <h2>education</h2>
     </div>
@@ -377,7 +406,7 @@ function App() {
 
   </section>
  
-  <section id="skills" class="skills" style={{ zIndex: 2, color: 'white', textAlign: 'center', position: 'relative', backgroundColor : "#f9fbfd" }}>
+  <section id="skills" class="skills" style={{ zIndex: 2, color: 'white', position: 'relative', backgroundColor : "#f9fbfd" }}>
       <div class="skill-content">
         <div class="section-heading text-center">
           <h2>{t('Compétences')}</h2>
@@ -394,7 +423,7 @@ function App() {
                      
                       style={{width: "80%",
                         height: "100%",
-                        backgroundColor: "#dd8e19",
+                        backgroundColor: "#427fc4",
                         transition: "width 0.5s ease-in-out"}}
                         >
                       </div>
@@ -410,7 +439,7 @@ function App() {
                        
                        style={{width: "85%",
                         height: "100%",
-                        backgroundColor: "#dd8e19",
+                        backgroundColor: "#427fc4",
                         transition: "width 0.5s ease-in-out"}}
                        
                        >
@@ -427,7 +456,7 @@ function App() {
                        <div class="progress-bar" role="progressbar" aria-valuenow="97" aria-valuemin="10" aria-valuemax="100" 
                        style={{width: "92%",
                         height: "100%",
-                        backgroundColor: "#dd8e19",
+                        backgroundColor: "#427fc4",
                         transition: "width 0.5s ease-in-out"}}
                         >
                        </div>
@@ -442,7 +471,7 @@ function App() {
                        <div class="progress-bar" role="progressbar" aria-valuenow="90" aria-valuemin="10" aria-valuemax="100"
                         style={{width: "92%",
                           height: "100%",
-                          backgroundColor: "#dd8e19",
+                          backgroundColor: "#427fc4",
                           transition: "width 0.5s ease-in-out"}}
                           >
                     
@@ -462,7 +491,7 @@ function App() {
                       <div class="progress-bar" role="progressbar" aria-valuenow="90" aria-valuemin="10" aria-valuemax="100"
                         style={{width: "95%",
                           height: "100%",
-                          backgroundColor: "#dd8e19",
+                          backgroundColor: "#427fc4",
                           transition: "width 0.5s ease-in-out"}}
                       >
                   
@@ -477,7 +506,7 @@ function App() {
                     <div class="progress ">
                        <div class="progress-bar" role="progressbar" aria-valuenow="85" aria-valuemin="10" aria-valuemax="100"                           style={{width: "85%",
                         height: "100%",
-                        backgroundColor: "#dd8e19",
+                        backgroundColor: "#427fc4",
                         transition: "width 0.5s ease-in-out"}}
                         >
                        </div>
@@ -492,7 +521,7 @@ function App() {
                        <div class="progress-bar" role="progressbar" aria-valuenow="97" aria-valuemin="10" aria-valuemax="100" 
                        style={{width: "97%",
                         height: "100%",
-                        backgroundColor: "#dd8e19",
+                        backgroundColor: "#427fc4",
                         transition: "width 0.5s ease-in-out"}}
                         >
                        </div>
@@ -507,7 +536,7 @@ function App() {
                        <div class="progress-bar" role="progressbar" aria-valuenow="90" aria-valuemin="10" aria-valuemax="100" 
                        style={{width: "79%",
                         height: "100%",
-                        backgroundColor: "#dd8e19",
+                        backgroundColor: "#427fc4",
                         transition: "width 0.5s ease-in-out"}}
                         >
 
@@ -524,7 +553,7 @@ function App() {
 
   </section>
  
-  <section id="experience" class="experience" style={{ zIndex: 2, color: 'white', textAlign: 'center', position: 'relative', backgroundColor : "#f9fbfd" }} >
+  <section id="experience" class="experience" style={{ zIndex: 2, color: 'white', position: 'relative', backgroundColor : "#f9fbfd" }} >
     <div class="section-heading text-center">
       <h2>{t('Expérience')}</h2>
     </div>
@@ -841,10 +870,9 @@ function App() {
     </div>
 
     <div id="scroll-Top">
-      <div class="return-to-top">
-        <a href='#Welcomme'><i class="fa fa-angle-up " id="scroll-top" ></i></a>
+      <div className="return-to-top" onClick={scrollToTop}>
+        <i className="fa fa-angle-up" id="scroll-top"></i>
       </div>
-      
     </div>
     
       </footer>

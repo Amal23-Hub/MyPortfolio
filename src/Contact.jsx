@@ -1,13 +1,20 @@
-import React, { useRef } from 'react';
+import React, { useState, useRef } from 'react';
 import emailjs from '@emailjs/browser';
 import Swal from 'sweetalert2';
 import { useTranslation } from 'react-i18next';  
 
 export const ContactUs = () => {
   const form = useRef();
-  const { t } = useTranslation(); // Garder cette ligne une seule fois
+  const { t } = useTranslation();
+  
+  // Nouvel état pour gérer le chargement
+  const [isLoading, setIsLoading] = useState(false);
+
   const sendEmail = (e) => {
     e.preventDefault();
+
+    // On commence à charger
+    setIsLoading(true);
 
     emailjs
       .sendForm('service_xaxq1nw', 'template_icytr1n', form.current, {
@@ -16,6 +23,8 @@ export const ContactUs = () => {
       .then(
         (result) => {
           // Vérification de la réponse de la promesse
+          setIsLoading(false); // Arrêter le chargement après la réponse
+
           if (result.status === 200) {
             // Afficher un message de succès
             Swal.fire({
@@ -23,6 +32,9 @@ export const ContactUs = () => {
               text: t("Message"),  // Utilisation correcte de la traduction
               icon: "success"
             });
+
+            // Réinitialiser le formulaire
+            form.current.reset();
           } else {
             // Afficher un message d'erreur si la réponse ne contient pas de statut 200
             Swal.fire({
@@ -34,6 +46,7 @@ export const ContactUs = () => {
         },
         (error) => {
           // Si une erreur se produit
+          setIsLoading(false); // Arrêter le chargement en cas d'erreur
           console.log('FAILED...', error.text);
           Swal.fire({
             title: "Error",
@@ -117,6 +130,13 @@ export const ContactUs = () => {
           </div>
         </div>
       </div>
+
+      {/* Afficher un cercle de chargement pendant l'envoi */}
+      {isLoading && (
+        <div className="loading-overlay">
+          <div className="spinner"></div> {/* Le cercle de chargement */}
+        </div>
+      )}
     </form>
   );
 };

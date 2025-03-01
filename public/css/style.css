@@ -37,8 +37,31 @@ font-family: 'Poppins', sans-serif;
 	-ms-box-sizing:border-box;
 	box-sizing:border-box;
 }
+html {
+    scroll-behavior: smooth;
+  }
+  
 header{
     background: #3681bd;
+}
+#scroll-Top {
+  position: fixed;
+  bottom: 20px;
+  right: 20px;
+  z-index: 999;
+}
+
+.return-to-top {
+  background-color: #427fc4;
+  border-radius: 50%;
+  padding: 10px;
+  box-shadow: 0px 5px 10px rgba(0, 0, 0, 0.1);
+  cursor: pointer;
+}
+
+.return-to-top i {
+  color: white;
+  font-size: 24px;
 }
 
 
@@ -149,9 +172,35 @@ nav.navbar.bootsnav ul.nav > li > a {
     transition: 0.3s linear;
     /* box-shadow: 0 3px 10px rgba(0,0,0,.2);
     padding: 20px 0px 30px; */
+
  
 }
-nav.navbar.bootsnav ul.nav > li > a {padding: 35px 20px;}
+.language-selector {
+    display: flex;
+    /* gap: 1px;  */
+}
+
+.language-btn {
+    background: none;
+    border: none;
+    cursor: pointer;
+    padding: 5px;
+    font-size: 24px; /* Ajuste la taille du drapeau */
+    transition: transform 0.3s ease;
+}
+/* .container{
+    padding-top: -200px;
+} */
+.language-btn:hover {
+    transform: scale(1.1); /* Effet d'agrandissement au survol */
+}
+
+.language-btn img {
+    width: 30px; /* Ajuste la taille des drapeaux */
+    height: auto;
+}
+
+nav.navbar.bootsnav ul.nav > li > a {padding: 25px 20px;}
 nav.navbar.bootsnav ul.nav > li > a:hover,nav.navbar.bootsnav ul.nav > li > a:focus,nav.navbar.bootsnav ul.nav > li.active>a{color: #427fc4;}
 
 nav.navbar.bootsnav ul.nav > li.dropdown > a.dropdown-toggle:after {
@@ -227,14 +276,15 @@ nav.navbar.bootsnav .navbar-toggle i{color: #427fc4;}
 }
 
 /*.header-text-area*/
-.header-text h2 {
+.header-text h2 { 
     color: #a2c1e4;
     font-size: 54px;
     font-weight: 700;
     text-transform: uppercase;
     line-height: 1.5;
-    
+    text-shadow: 0px 0px 2px rgb(255, 255, 255); /* Improved shadow */
 }
+
 .header-text h2 span {color: #427fc4;}
 .header-text p {
     color: #fff;
@@ -243,8 +293,7 @@ nav.navbar.bootsnav .navbar-toggle i{color: #427fc4;}
     text-transform: uppercase;
     margin: 30px 0 60px;
     letter-spacing: 1px;
-}
-.header-text a {
+}.header-text a {
     width: 200px;
     height: 60px;
     line-height: 60px;
@@ -252,16 +301,16 @@ nav.navbar.bootsnav .navbar-toggle i{color: #427fc4;}
     text-transform: capitalize;
     color: #fff;
     background: #427fc4;
-    border:1px solid #427fc4;
-    box-shadow: 0 5px 20px rgba(0,0,0,.2);
-    -webkit-transition: 0.3s linear; 
-    -moz-transition: 0.3s linear; 
-    -ms-transition: 0.3s linear; 
-    -o-transition: 0.3s linear; 
-    transition: 0.3s linear;
+    border: 1px solid #427fc4;
+    box-shadow: 2px 2px 9px rgb(255, 255, 255); /* Softer shadow */
+    transition: all 0.3s ease; /* Simplified transition */
     font-weight: bold;
 }
-.header-text a:hover{ box-shadow: 0 5px 20px rgba(0,0,0,.4);background:#427fc4;border: 1px solid #427fc4;color: #fcfcfc;}
+
+.header-text a:hover {
+    background: #427fc4; /* Darker shade on hover */
+    box-shadow: 4px 4px 13px rgb(255, 255, 255); /* Darker shadow on hover */
+}
 /*.header-text-area*/
 
 /*-------------------------------------
@@ -413,7 +462,7 @@ span.single-timeline-horizontal.spacial-horizontal-line {width: 88px;}
 }
 .single-progress-txt h3 {
     width: 10%;
-    color: #179be7;
+    color: black;
     position: relative;
     top: 6px;
     left: 20px;
@@ -890,5 +939,33 @@ span.single-timeline-horizontal.spacial-horizontal-line {width: 88px;}
     0%   {bottom:0px;}
     100%  {bottom:7px;}
 }
-
+/* Style de l'overlay */
+.loading-overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background: rgba(0, 0, 0, 0.5); /* Ombre pour l'arrière-plan */
+    z-index: 9999; /* Assurez-vous que l'overlay soit au-dessus de tout autre contenu */
+  }
+  
+  .spinner {
+    border: 4px solid #f3f3f3; /* Couleur de fond */
+    border-top: 4px solid #427fc4; /* Couleur du cercle de chargement */
+    border-radius: 50%;
+    width: 50px;
+    height: 50px;
+    animation: spin 2s linear infinite;
+  }
+  
+  /* Animation pour faire tourner le cercle */
+  @keyframes spin {
+    0% { transform: rotate(0deg); }
+    100% { transform: rotate(360deg); }
+  }
+  
 /*========================Thank you=================
