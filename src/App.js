@@ -53,14 +53,11 @@ function App() {
                         <i class="fa fa-bars"></i>
                     </button>
                     <a class="navbar-brand" href="index.html">
-                    {/* <img src="images/about/Amal1.png" alt="logoAmal" className='ImageLogo'/> */}
+                    <img src="images/about/Amal.png" alt="logoAmal" className='ImageLogo'/>
                     </a> 
                     <div className='style'>
-                          
-                          
-                          
-           
-        </div>
+                      
+                   </div>
                 </div>
                
                 <div class="collapse navbar-collapse menu-ui-design" id="navbar-menu">

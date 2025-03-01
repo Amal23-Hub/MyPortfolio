@@ -467,6 +467,57 @@ span.single-timeline-horizontal.spacial-horizontal-line {width: 88px;}
     top: 6px;
     left: 20px;
 }
+/* LogoImage */
+/* Conteneur principal de la navbar */
+  /* Style du bouton de la navbar */
+  .navbar-toggle {
+    background-color: transparent;
+    border: none;
+    font-size: 20px;
+    color: white;
+    cursor: pointer;
+  }
+  
+  .navbar-toggle:hover {
+    color: #f8f9fa;  /* Changer la couleur du bouton au survol */
+  }
+  
+  /* Conteneur de l'image du logo */
+  .navbar-brand {
+    display: flex;
+    /* justify-content: center;
+    align-items: center; */
+    margin-left: 10px;
+     /* Marge à gauche pour éloigner du bord */
+  }
+  
+  /* Style spécifique pour l'image du logo */
+  .ImageLogo {
+    max-width: 150px;  /* Largeur maximale du logo */
+    height: 280px;
+    width: 90px;  
+    margin-top: -20px;
+    padding-bottom: 225px; 
+    transition: transform 0.3s ease;  /* Animation pour l'effet de survol */
+  }
+  
+  /* Effet au survol du logo */
+  .ImageLogo:hover {
+    transform: scale(1.1);  /* Agrandir légèrement le logo au survol */
+  }
+  
+  /* Pour s'assurer que la barre de navigation est responsive */
+  @media (max-width: 768px) {
+    .navbar-header {
+      justify-content: space-between;
+      padding: 10px;
+    }
+  
+    .navbar-brand {
+      margin-left: 0; /* Enlever la marge gauche pour les petits écrans */
+    }
+  }
+  
 .barWrapper {
     font-weight: 400;
     font-size: 16px;
