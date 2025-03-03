@@ -12,7 +12,7 @@
     "SurMoi": "About Me",
     "oct 2021 - juin 2023": "Oct 2021 - Jun 2023",
     "Deust en MIP, FST": "Deust in MIP, FST",
-    "Faculté des Sciences et Techniques.": "Faculty of Sciences and Techniques.",
+    "Faculté des Sciences et Techniques": "Faculty of Sciences and Techniques.",
     "Tanger-Tétouan-Al Hoceima, Maroc": "Tanger-Tétouan-Al Hoceima, Morocco",
     "Diplome1": "University Diploma in Scientific and Technical Studies (Deust), MIP (Mathematics, Computer Science, and Physics).",
     "Licence en Génie Informatique, FST": "Bachelor's in Computer Engineering, FST",
@@ -34,5 +34,13 @@
     "Message": "Message Sent Successfully",
     "succès": "Success",
     "Projet":"Project",
-    "Projets réalisés":"Projects Executed"
+    "Projets réalisés":"Projects Executed",
+    "React":"React.js is a JavaScript library for building user interfaces.",
+    ".Net":".NET is a free, cross-platform, open-source developer platform for building many different types of applications.",
+    "Flutter":"Flutter is a UI toolkit from Google for building natively compiled applications for mobile.",
+    "Spring Boot":"Spring Boot is a Java framework for production-ready applications.",
+    "Django": "Django is a high-level Python web framework that encourages rapid development and clean, pragmatic design.",
+    "JavaScript":"JavaScript is a lightweight, interpreted, and high-level programming language that is widely used for web applications.",
+    "Python":"Python is an interpreted, high-level, often used for web development.",
+    "Android":"Android is an open-source operating system primarily used for mobile devices, developed by Google."
 }

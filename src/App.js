@@ -5,7 +5,7 @@ import ParticlesComponent from './components/Particle';
 import './i18n';
 import { useTranslation } from 'react-i18next';  
 import WelcomePage from './WelcomePage';
-
+import SkillsComponent from './SkillsComponent';
 {/* <div>    
       
 <p class="browserupgrade"> {t('Welcome')} sur Mon <strong>Portfolio</strong>. Consultez le Code Source sur <a href="https://github.com/Amal23-Hub/Portfolio.git">GitHub</a>.</p> 
@@ -19,7 +19,7 @@ function App() {
      const [showWelcome, setShowWelcome] = useState(true);
    
      const handleEnterClick = () => {
-       setShowWelcome(false); // Masque la page d'accueil et montre le contenu du portfolio
+       setShowWelcome(false);
      };
 
 
@@ -210,19 +210,19 @@ function App() {
                   
                 < li>
                      <a href="https://x.com/A86276Amal">
-                       <i class="fa fa-twitter"></i>
+                       <i class="fab fa-twitter"></i>
                      </a>
                   </li>
                   
                   <li>
                     <a href="https://github.com/Amal23-Hub">
-                      <i class="fa fa-github" aria-hidden="true"></i>
+                      <i class="fab fa-github" aria-hidden="true"></i>
                     </a>
                   </li>
                   
                   <li>
                     <a href="https://www.linkedin.com/in/amal-chegdali-37a5b9239/">
-                      <i  class="fa fa-linkedin" aria-hidden="true"></i>
+                      <i  class="fab fa-linkedin" aria-hidden="true"></i>
                     </a>
                   </li>
                 
@@ -291,7 +291,7 @@ function App() {
             <div class="col-sm-3">
               <div class="single-profile profile-no-border">
                 <div class="profile-txt">
-                  <a href=""><i class="flaticon-github-logo"></i></a>
+                  <a href=""><i class="fab fa-github"></i></a>
                   <div class="profile-icon-name">github</div>
                 </div>
                 <div class="single-profile-overlay">
@@ -448,12 +448,19 @@ function App() {
     </div>
 
   </section>
- 
+
+
   <section id="skills" class="skills" style={{ textAlign: 'justify',zIndex: 2, position: 'relative', backgroundColor : "#f9fbfd" }}>
       <div class="skill-content">
         <div class="section-heading text-center">
           <h2>{t('Compétences')}</h2>
         </div>
+        <section style={{ position: 'relative',backgroundColor : "#f9fbfd"  }}>
+                          {/* Skills  */}
+                <div style={{ position: 'relative',backgroundColor : "#f9fbfd"  }}>
+                    <SkillsComponent />
+                </div>
+      </section>
         <div class="container">
           <div class="row">
             <div class="col-md-6">
@@ -899,9 +906,9 @@ function App() {
               </div>
               <div class="hm-foot-icon">
                 <ul>
-                  <li><a href="https://x.com/A86276Amal"><i class="fa fa-twitter"></i></a></li> 
-                  <li><a href="https://github.com/Amal23-Hub"><i class="fa fa-github" aria-hidden="true"></i></a></li>
-                  <li><a href="https://www.linkedin.com/in/amal-chegdali-37a5b9239/"><i class="fa fa-linkedin"></i></a></li>
+                  <li><a href="https://x.com/A86276Amal"><i class="fab fa-twitter"></i></a></li> 
+                  <li><a href="https://github.com/Amal23-Hub"><i class="fab fa-github" aria-hidden="true"></i></a></li>
+                  <li><a href="https://www.linkedin.com/in/amal-chegdali-37a5b9239/"><i class="fab fa-linkedin"></i></a></li>
                 </ul>
               </div>
             </div>
