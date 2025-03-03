@@ -3,13 +3,13 @@
     "Compétences":"Compétences",
     "Expérience":"Expérience",
     "TitleStatus": "Étudiante à la Faculté Marocaine des Sciences de l’Ingénieur en développement réseaux et informatique.",
-    "ProfilePrestantation": "Étudiante en 4ème année à l’EMSI, spécialisée en Réseaux et Systèmes Informatiques. Passionnée par le développement web et mobile, j’ai acquis des compétences en Django, Flutter et .NET. Actuellement à la recherche d’un stage de PFA pour mettre en pratique mes connaissances et contribuer à des projets innovants dans un environnement dynamique.",
+    "ProfilePrestantation": "Étudiante en 4ème année à l’EMSI, spécialisée en Réseaux et Systèmes Informatiques. Passionnée par le développement web et mobile, j’ai acquis des compétences en .NET, React, Spring Boot, Django (Python), et en Flutter et  Actuellement à la recherche d’un stage de PFA pour mettre en pratique mes connaissances et contribuer à des projets innovants dans un environnement dynamique.Je suis toujours à la recherche de nouveaux défis et de projets qui me permettent de grandir et de repousser mes limites.",
     "greeting":"Bonjour",
     "My":"Je Suis",
     "Status":"Etudiante  en Géni Informatique",
     "Number":"Téléphone",
     "Cv":"Télécharger CV",
-    "SurMoi":"Sur Moi",
+    "SurMoi":"À Propos de Moi",
     "oct 2021 - juin 2023":"oct 2021 - juin 2023",
     "Deust en MIP, FST":"Deust en MIP, FST",
     "Faculté des Sciences et Techniques.":"Faculté des Sciences et Techniques.",
@@ -32,7 +32,9 @@
     "Sujet":"Sujet",
     "Envoyer":"Envoyer",
     "Message":"Message a été Bien Envoyé",
-    "succès":"Succès"
+    "succès":"Succès",
+    "Projet":"Projet",
+    "Projets réalisés":"Projets réalisés"
     
     
 }

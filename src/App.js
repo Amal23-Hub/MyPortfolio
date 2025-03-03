@@ -1,28 +1,67 @@
 import './App.css';
-import React, { useState , useEffect } from 'react';
-// import axios from 'axios';
+import React, { useState , useEffect, useRef} from 'react';
 import { ContactUs } from './Contact';
-// import Particles from 'react-particles';
 import ParticlesComponent from './components/Particle';
-
 import './i18n';
 import { useTranslation } from 'react-i18next';  
+import WelcomePage from './WelcomePage';
+
 {/* <div>    
       
 <p class="browserupgrade"> {t('Welcome')} sur Mon <strong>Portfolio</strong>. Consultez le Code Source sur <a href="https://github.com/Amal23-Hub/Portfolio.git">GitHub</a>.</p> 
    </div> */}
 
+   
 function App() {
+
+
+  
+     const [showWelcome, setShowWelcome] = useState(true);
+   
+     const handleEnterClick = () => {
+       setShowWelcome(false); // Masque la page d'accueil et montre le contenu du portfolio
+     };
+
 
   // const [name, setName] = useState('');
   // const [email, setEmail] = useState('');
   // const [subject, setSubject] = useState('');
   // const [message, setMessage] = useState('');
   // const [responseMessage, setResponseMessage] = useState('');
-  
-  const handleSubmit = async (event) => {
-    event.preventDefault();  // Empêche le rechargement de la page
-  };
+
+  const [projectsCount, setProjectsCount] = useState(0); // Nombre de projets
+  const totalProjects = 17; // Nombre total de projets réalisés
+  const sectionRef = useRef(null); // Référence de la section
+
+  useEffect(() => {
+    // Fonction pour vérifier si la section est dans la vue de l'utilisateur
+    const handleScroll = () => {
+      const sectionPosition = sectionRef.current.getBoundingClientRect();
+      if (sectionPosition.top >= 0 && sectionPosition.bottom <= window.innerHeight) {
+        startProgress(); // Lance la progression si la section est visible
+      }
+    };
+
+    // Fonction pour augmenter le nombre de projets
+    const startProgress = () => {
+      const interval = setInterval(() => {
+        setProjectsCount(prevCount => {
+          if (prevCount < totalProjects) {
+            return prevCount + 1; // Augmente le nombre de 1
+          } else {
+            clearInterval(interval); // Arrêter l'intervalle une fois le total atteint
+            return prevCount;
+          }
+        });
+      }, 400); // Augmenter le nombre toutes les 100 ms
+    };
+
+    // Attacher l'événement de scroll
+    window.addEventListener('scroll', handleScroll);
+
+    // Nettoyer l'événement au démontage du composant
+    return () => window.removeEventListener('scroll', handleScroll);
+  }, []);
 
 
     // Fonction pour gérer le défilement fluide
@@ -40,9 +79,11 @@ function App() {
     };
 
   return (
-	<div id="Welcomme">
-        <div className="App">
-        </div>
+    <div className="App">
+    {showWelcome ? (
+      <WelcomePage onEnter={handleEnterClick} />
+    ) : (
+      <div id="Welcomme">
   <header class="top-area">
     <div class="header-area">
         <nav class="navbar navbar-default bootsnav navbar-fixed dark no-background">
@@ -67,7 +108,7 @@ function App() {
                         <li class="smooth-menu"><a href="#education"><span style={{fontWeight:"bold"}}>Education</span></a></li>
                         <li class="smooth-menu"><a href="#skills"><span style={{fontWeight:"bold"}}>{t('Compétences')}</span></a></li>
                         <li class="smooth-menu"><a href="#experience"><span style={{fontWeight:"bold"}}>{t('Expérience')}</span></a></li>
-                        <li class="smooth-menu"><a href="#portfolio"><span style={{fontWeight:"bold"}}>Portfolio</span></a></li>
+                        <li class="smooth-menu"><a href="#portfolio"><span style={{fontWeight:"bold"}}>{t('Projet')}</span></a></li>
                         <li class="smooth-menu"><a href="#contact"><span style={{fontWeight:"bold"}}>Contact</span></a></li>
                         <li style={{paddingTop : "2%"}}> 
                           {/* <select className='changeLanguage-btn' onChange={(e) => changeLanguage(e.target.value)}> 
@@ -108,7 +149,7 @@ function App() {
   <ParticlesComponent id="particles" style={{ position: 'absolute', top: 0, left: 0, width: '100%', height: '100%', zIndex: 0 }} />
   
   {/* Votre contenu */}
-  <div style={{ zIndex: 2, color: 'white', textAlign: 'center', position: 'relative' }}>
+  <div style={{ zIndex: 2, position: 'relative' }}>
   <div class="container">
       <div class="row">
         <div class="col-md-12 text-center">
@@ -167,7 +208,12 @@ function App() {
               <div class="about-list-icon">
                 <ul>
                   
-                
+                < li>
+                     <a href="https://x.com/A86276Amal">
+                       <i class="fa fa-twitter"></i>
+                     </a>
+                  </li>
+                  
                   <li>
                     <a href="https://github.com/Amal23-Hub">
                       <i class="fa fa-github" aria-hidden="true"></i>
@@ -175,12 +221,12 @@ function App() {
                   </li>
                   
                   <li>
-                    <a href="https://www.linkedin.com/feed/">
+                    <a href="https://www.linkedin.com/in/amal-chegdali-37a5b9239/">
                       <i  class="fa fa-linkedin" aria-hidden="true"></i>
                     </a>
                   </li>
                 
-                
+                  
                 </ul>
               </div>
 
@@ -192,7 +238,7 @@ function App() {
     </div>
   </section>
 
-  <section id="about" class="profiles" style={{ zIndex: 2, color: 'white', position: 'relative', backgroundColor : "#f9fbfd" }}>
+  <section id="about" class="profiles" style={{ zIndex: 2, position: 'relative', backgroundColor : "#f9fbfd" }}>
     <div class="profiles-details">
       <div class="section-heading text-center">
         <h2>{t('SurMoi')}</h2>
@@ -333,7 +379,7 @@ function App() {
             <div class="single-horizontal-timeline">
               <div class="experience-time">
                 <h2>{t('oct 2021 - juin 2023')}</h2>
-                <h3>{t('Deust en MIP, FST')}</h3>
+                <h3>{t('Deust en MIP, FST')}.</h3>
               </div>
               <div class="timeline-horizontal-border">
                 <i class="fa fa-circle" aria-hidden="true"></i>
@@ -342,7 +388,7 @@ function App() {
               <div class="timeline">
                 <div class="timeline-content">
                   <h4 class="title">
-                  {t('Faculté des Sciences et Techniques.')}
+                  {t('Faculté des Sciences et Techniques')}
                   </h4>
                   <h5>{t('Tanger-Tétouan-Al Hoceima, Maroc')}</h5>
                   <p class="description">
@@ -356,7 +402,7 @@ function App() {
             <div class="single-horizontal-timeline">
               <div class="experience-time">
                 <h2>sep 2023 - 2024</h2>
-                <h3>{t('Licence en Génie Informatique, FST')}</h3>
+                <h3>{t('Licence en Génie Informatique, FST')}.</h3>
               </div>
               <div class="timeline-horizontal-border">
                 <i class="fa fa-circle" aria-hidden="true"></i>
@@ -365,7 +411,7 @@ function App() {
               <div class="timeline">
                 <div class="timeline-content">
                   <h4 class="title">
-                    {t('Faculté des Sciences et Techniques.')}
+                    {t('Faculté des Sciences et Techniques')}
                   </h4>
                   <h5>{t('Tanger-Tétouan-Al Hoceima, Maroc')}</h5>
                   <p class="description">
@@ -378,7 +424,7 @@ function App() {
             <div class="single-horizontal-timeline">
               <div class="experience-time">
                 <h2>sep 2024 - sep 2026</h2>
-                <h3>{t('Encours')}</h3>
+                <h3>{t('Encours')}.</h3>
               </div>
               <div class="timeline-horizontal-border">
                 <i class="fa fa-circle" aria-hidden="true"></i>
@@ -403,7 +449,7 @@ function App() {
 
   </section>
  
-  <section id="skills" class="skills" style={{ zIndex: 2, color: 'white', position: 'relative', backgroundColor : "#f9fbfd" }}>
+  <section id="skills" class="skills" style={{ textAlign: 'justify',zIndex: 2, position: 'relative', backgroundColor : "#f9fbfd" }}>
       <div class="skill-content">
         <div class="section-heading text-center">
           <h2>{t('Compétences')}</h2>
@@ -550,7 +596,7 @@ function App() {
 
   </section>
  
-  <section id="experience" class="experience" style={{ zIndex: 2, color: 'white', position: 'relative', backgroundColor : "#f9fbfd" }} >
+  <section id="experience" class="experience" style={{textAlign: 'justify', zIndex: 2, color: 'white', position: 'relative', backgroundColor : "#f9fbfd" }} >
     <div class="section-heading text-center">
       <h2>{t('Expérience')}</h2>
     </div>
@@ -570,11 +616,11 @@ function App() {
                     <div class="col-md-offset-1 col-md-5">
                       <div class="timeline">
                         <div class="timeline-content">
-                          <h4 class="title">
+                          <h4 class="title" >
                             <span><i class="fa fa-circle" aria-hidden="true"></i></span>
                             Alexsys Solutions
                           </h4>
-                          <h5>{t('Rabat, Rabat-Salé-Kénitra, Maroc')}</h5>
+                          <h5>{t('Rabat, Rabat-Salé-Kénitra, Maroc')}.</h5>
                           <p class="description">
                               {t('ProjetPFELicence')}
                           </p>
@@ -724,11 +770,11 @@ function App() {
   
  
 
-  <section id="portfolio" class="portfolio" style={{ zIndex: 2, color: 'white', textAlign: 'center', position: 'relative', backgroundColor : "#f9fbfd" }}>
+  <section id="portfolio" class="portfolio" style={{ zIndex: 2, color: 'white',position: 'relative', backgroundColor : "#f9fbfd" }}>
     <div class="portfolio-details"> 
 
       <div class="section-heading text-center">
-        <h2>portfolio</h2>
+        <h2>{t('Projet')}</h2>
       </div>
 
       <div class="container" >
@@ -794,6 +840,16 @@ function App() {
                     </a>
                   </div>
                 </div>
+
+                <div style={styles.container}>
+                  <h2>{t('Projets réalisés')}</h2><br/>
+                  <div style={{marginLeft:'25%'}}>
+                  <h2 style={styles.number}>+{projectsCount}</h2>
+                  <div ref={sectionRef} style={styles.progressContainer}>
+                  </div>
+                  </div>
+                </div>
+
               </div>
 
             </div>
@@ -805,7 +861,7 @@ function App() {
   </section>
  
       
-      <section id="contact" class="contact" style={{ zIndex: 2, color: 'white', position: 'relative', backgroundColor : "#f9fbfd" }}>
+      <section id="contact" class="contact" style={{ textAlign: 'justify',zIndex: 2, color: 'white', position: 'relative', backgroundColor : "#f9fbfd" }}>
       <div class="section-heading text-center">
       <h2>{t('Contactez - Moi')}</h2>
     </div>
@@ -824,16 +880,16 @@ function App() {
               <div class="contact-adress">
                 <div class="contact-add-head">
                   <h3>Amal Chegdali</h3>
-                  <p>{t('Etudiante')}, EMSI</p>
+                  <p>{t('Etudiante')}, EMSI.</p>
                 </div>
                 <div class="contact-add-info">
                   <div class="single-contact-add-info">
-                    <h3>{t('Number')}</h3>
-                    <p>+212-625-081-064</p>
+                    <h3>{t('Number')} :</h3>
+                    <p>+212-625-081-064.</p>
                   </div>
                   <div class="single-contact-add-info">
-                    <h3>Email</h3>
-                    <p>chegdali.amal@etu.uae.ac.ma</p>
+                    <h3>Email : </h3>
+                    <p>chegdali.amal@etu.uae.ac.ma.</p>
                   </div>
                   {/* <div class="single-contact-add-info">
                     <h3>website</h3>
@@ -843,9 +899,9 @@ function App() {
               </div>
               <div class="hm-foot-icon">
                 <ul>
-                  <li><a href="#"><i class="fa fa-facebook"></i></a></li>
+                  <li><a href="https://x.com/A86276Amal"><i class="fa fa-twitter"></i></a></li> 
                   <li><a href="https://github.com/Amal23-Hub"><i class="fa fa-github" aria-hidden="true"></i></a></li>
-                  <li><a href="https://www.linkedin.com/feed/"><i class="fa fa-linkedin"></i></a></li>
+                  <li><a href="https://www.linkedin.com/in/amal-chegdali-37a5b9239/"><i class="fa fa-linkedin"></i></a></li>
                 </ul>
               </div>
             </div>
@@ -857,7 +913,7 @@ function App() {
 
 </section>
 
-  <footer id="footer-copyright" class="footer-copyright"  style={{ zIndex: 2, textAlign: 'center', position: 'relative' }}>
+  <footer id="footer-copyright" class="footer-copyright"  style={{ zIndex: 2, position: 'relative' }}>
     <div class="container">
       <div class="hm-footer-copyright text-center">
         <p>
@@ -874,11 +930,54 @@ function App() {
     
       </footer>
 
-  
+      </div>
       
-  </div>
-
-  );
+    
+    )}
+      </div>
+    );
 }
+
+//css 
+const styles = {
+  container: {
+    textAlign: 'center',
+    padding: '20px',
+    fontFamily: 'Arial, sans-serif',
+
+  },
+  progressContainer: {
+    marginTop: '200px', // Add some space for scrolling
+    fontSize: '24px',
+    fontWeight: 'bold',
+    color: '#3498db',
+    display: 'flex',
+    justifyContent: 'center',
+    alignItems: 'center',
+        
+  },
+  number: {
+    fontSize: '48px',
+    color: 'white', // Text color inside the circle
+    fontWeight: 'bold',
+    display: 'flex',
+    justifyContent: 'center',
+    alignItems: 'center',
+    width: '150px', // Set width for the oval
+    height: '100px', // Set height for the oval (making it oval)
+    borderRadius: '50px', // Making it an oval (half of the height)
+    background: 'linear-gradient(45deg, #1e3c72, #2a5298, #3c8dbc)', // Gradient colors (blue shades)
+    boxShadow: '0 4px 15px rgba(0, 0, 0, 0.2)', // Shadow effect
+    animation: 'countAnimation 2s ease-out', // Smooth animation
+     
+    
+  },
+  maxNumber: {
+    fontSize: '24px',
+    color: '#7f8c8d',
+    marginLeft: '5px',
+  },
+};
+
 
 export default App;
