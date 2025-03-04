@@ -791,7 +791,7 @@ function App() {
 
               <div class="col-sm-4">
                 <div class="item">
-                  <img src="images/portfolio/p1.jpg" alt="portfolioimage"/>
+                  <img src="images/about/projet1.png" alt="portfolioimage"/>
                   <div class="isotope-overlay">
                     <a href="https://github.com/Amal23-Hub/ApplicationWeb-en-Django.git">
                       {t('Application Web en Django')}
@@ -800,7 +800,7 @@ function App() {
                 </div>
 
                 <div class="item">
-                  <img src="images/classroomDjango.png" alt="portfolioimage"/>
+                  <img src="images/portfolio/classroomDjango.png" alt="portfolioimage"/>
                   <div class="isotope-overlay">
                     <a href="https://github.com/Amal23-Hub/ClassroomProject.git">
                       <span>Classroom Project</span>
@@ -832,7 +832,7 @@ function App() {
 
               <div class="col-sm-4">
                 <div class="item">
-                  <img src="images/portfolio/p4.jpg" alt="portfolioimage"/>
+                  <img src="images/about/projet1.png" alt="portfolioimage"/>
                   <div class="isotope-overlay">
                     <a href="https://github.com/Amal23-Hub/SiteUniversitaire.git">
                       Site Web {t('Universitaire')}
