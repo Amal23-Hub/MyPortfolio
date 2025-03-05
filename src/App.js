@@ -237,7 +237,7 @@ function App() {
       </div>
     </div>
   </section>
-
+{/* 
   <section id="about" class="profiles" style={{ zIndex: 2, position: 'relative', backgroundColor : "#f9fbfd" }}>
     <div class="profiles-details">
       <div class="section-heading text-center">
@@ -366,7 +366,7 @@ function App() {
       </div>
     </div>
 
-  </section>
+  </section> */}
 
   <section id="education" class="education" style={{ zIndex: 2, color: 'white', position: 'relative', backgroundColor : "#f9fbfd" }}>
     <div class="section-heading text-center">
@@ -774,8 +774,7 @@ function App() {
     </div>
 
   </section>
-  
- 
+
 
   <section id="portfolio" class="portfolio" style={{ zIndex: 2, color: 'white',position: 'relative', backgroundColor : "#f9fbfd" }}>
     <div class="portfolio-details"> 
