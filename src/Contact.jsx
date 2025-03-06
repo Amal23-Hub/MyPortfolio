@@ -13,6 +13,20 @@ export const ContactUs = () => {
   const sendEmail = (e) => {
     e.preventDefault();
 
+    // Validation : vérifier que tous les champs nécessaires sont remplis
+    const name = form.current["from_name"].value;
+    const email = form.current["from_email"].value;
+    const message = form.current["message"].value;
+
+    if (!name || !email || !message) {
+      Swal.fire({
+        title: t("Erreur"),
+        text: t("Tous les champs doivent être remplis."),
+        icon: "error"
+      });
+      return; // Empêche l'envoi si un champ est vide
+    }
+
     // On commence à charger
     setIsLoading(true);
 
@@ -28,8 +42,8 @@ export const ContactUs = () => {
           if (result.status === 200) {
             // Afficher un message de succès
             Swal.fire({
-              title: t("succès"),
-              text: t("Message"),  // Utilisation correcte de la traduction
+              title: t("Succès"),
+              text: t("Message envoyé avec succès"),  // Utilisation correcte de la traduction
               icon: "success"
             });
 

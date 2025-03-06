@@ -206,7 +206,7 @@ function App() {
             <div class="single-about-img">
               <img src="images/about/profile_image.png" alt="profileimage"/>
               <div class="about-list-icon">
-                <ul>
+                <ul >
                   
                 < li>
                      <a href="https://x.com/A86276Amal">
@@ -215,7 +215,7 @@ function App() {
                   </li>
                   
                   <li>
-                    <a href="https://github.com/Amal23-Hub">
+                    <a href="https://github.com/Amal23-Hub"  className='iconhover'>
                       <i class="fab fa-github" aria-hidden="true"></i>
                     </a>
                   </li>
@@ -225,8 +225,6 @@ function App() {
                       <i  class="fab fa-linkedin" aria-hidden="true"></i>
                     </a>
                   </li>
-                
-                  
                 </ul>
               </div>
 
@@ -849,11 +847,11 @@ function App() {
 
                 <div style={styles.container}>
                   <h2>{t('Projets réalisés')}</h2><br/>
-                  <div style={{marginLeft:'25%'}}>
-                  <h2 style={styles.number}>+{projectsCount}</h2>
-                  <div ref={sectionRef} style={styles.progressContainer}>
-                  </div>
-                  </div>
+                    <div style={{marginLeft:'25%'}}  className='projectsCount'>
+                    <h2 style={styles.number}>+{projectsCount}</h2>
+                    <div ref={sectionRef} style={styles.progressContainer}>
+                    </div>
+                    </div>
                 </div>
 
               </div>
@@ -867,7 +865,7 @@ function App() {
   </section>
  
       
-      <section id="contact" class="contact" style={{ textAlign: 'justify',zIndex: 2, color: 'white', position: 'relative', backgroundColor : "#f9fbfd" }}>
+      <section id="contact" class="contact" style={{ textAlign: 'justify',zIndex: 2, color: 'white', position: 'relative' }}>
       <div class="section-heading text-center">
       <h2>{t('Contactez - Moi')}</h2>
     </div>

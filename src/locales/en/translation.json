@@ -42,5 +42,6 @@
     "Django": "Django is a high-level Python web framework that encourages rapid development and clean, pragmatic design.",
     "JavaScript":"JavaScript is a lightweight, interpreted, and high-level programming language that is widely used for web applications.",
     "Python":"Python is an interpreted, high-level, often used for web development.",
-    "Android":"Android is an open-source operating system primarily used for mobile devices, developed by Google."
+    "Android":"Android is an open-source operating system primarily used for mobile devices, developed by Google.",
+    "Tous les champs doivent être remplis.":"All fields must be filled"
 }

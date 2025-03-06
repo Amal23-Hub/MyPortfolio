@@ -24,7 +24,7 @@ const ParticlesComponent = (props) => {
     () => ({
       background: {
         color: {
-          value: "#c7daf0",
+          value: "#427fc4",
         },
       },
       fpsLimit: 140,
