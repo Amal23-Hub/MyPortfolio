@@ -12,11 +12,23 @@ font-family: 'Poppins', sans-serif;
     border: 6px solid #edf2fa;
     border-radius: 40%;
     width: 50px;
-    height: 50px; 
+    height: 50px;
     animation: spin 2s linear infinite;
-    margin-left:-2%;
     position: fixed;
   }
+  
+  @media (max-width: 768px) {
+    .loader {
+      margin-left: -10px; /* Valeur différente pour les petits écrans */
+    }
+  }
+  
+  @media (min-width: 769px) {
+    .loader {
+      margin-left: -2%; /* Valeur par défaut pour les écrans plus larges */
+    }
+  }
+  
 .welcome-page {
     height: 100vh;
     display: flex;
@@ -519,15 +531,37 @@ span.single-timeline-horizontal.spacial-horizontal-line {width: 88px;}
   
   /* Style spécifique pour l'image du logo */
   .ImageLogo {
-    max-width: 15vw;  /* La largeur du logo dépend de la largeur de la fenêtre */
-    width: auto;  /* Laisser la largeur se calculer automatiquement en fonction de l'aspect ratio */
-    height: auto;  /* Garder les proportions de l'image */
+    width: 250px;  /* Largeur fixe du logo */
+    height: auto;  /* Laisser la hauteur s'ajuster automatiquement pour garder les proportions */
     max-height: 280px;  /* Hauteur maximale du logo */
     margin-top: -20px;
     padding-bottom: 225px;
     transition: transform 0.3s ease;  /* Animation pour l'effet de survol */
-    object-fit: contain;  /* S'assure que l'image garde ses proportions tout en remplissant l'espace */
-}
+    object-fit: contain;  /* L'image garde ses proportions tout en remplissant l'espace */
+  }
+  
+  .ImageLogo:hover {
+    transform: scale(1.1);  /* Effet de zoom au survol */
+  }
+  
+  /* Media Query pour ajuster le logo sur des petits écrans (comme un téléphone) */
+  @media (max-width: 768px) {
+    .ImageLogo {
+      width: 180px;  /* Réduit la largeur du logo sur les petits écrans */
+      max-height: 200px;  /* Limite la hauteur du logo sur les petits écrans */
+      padding-bottom: 150px;  /* Ajuste le padding sur les petits écrans */
+    }
+  }
+  
+  /* Media Query pour très petits écrans (comme un téléphone mobile en portrait) */
+  @media (max-width: 480px) {
+    .ImageLogo {
+      width: 150px;  /* Encore plus petit sur les très petits écrans */
+      max-height: 180px;
+      padding-bottom: 100px;  /* Réduit le padding pour de très petits écrans */
+    }
+  }
+  
 
 /* Effet au survol du logo */
 .ImageLogo:hover {
