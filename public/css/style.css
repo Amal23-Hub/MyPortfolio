@@ -11,23 +11,29 @@ font-family: 'Poppins', sans-serif;
 .loader {
     border: 6px solid #edf2fa;
     border-radius: 40%;
-    width: 50px;
+    width: 50px;  /* Taille par défaut du loader */
     height: 50px;
     animation: spin 2s linear infinite;
     position: fixed;
+    top: 50%;  /* Centrer verticalement */
+    left: 50%;  /* Centrer horizontalement */
+    transform: translate(-50%, -50%);  /* Ajuster pour un centrage parfait */
   }
   
   @media (max-width: 768px) {
     .loader {
-      margin-left: -10px; /* Valeur différente pour les petits écrans */
+      width: 40px;  /* Réduit la taille sur les petits écrans (téléphones) */
+      height: 40px;
     }
   }
   
-  @media (min-width: 769px) {
+  @media (max-width: 480px) {
     .loader {
-      margin-left: -2%; /* Valeur par défaut pour les écrans plus larges */
+      width: 30px;  /* Réduit encore plus la taille pour les très petits écrans (ex : téléphones en portrait) */
+      height: 30px;
     }
   }
+  
   
 .welcome-page {
     height: 100vh;
@@ -531,34 +537,41 @@ span.single-timeline-horizontal.spacial-horizontal-line {width: 88px;}
   
   /* Style spécifique pour l'image du logo */
   .ImageLogo {
-    width: 250px;  /* Largeur fixe du logo */
-    height: auto;  /* Laisser la hauteur s'ajuster automatiquement pour garder les proportions */
+    max-width: 15vw;  /* La largeur du logo dépend de la largeur de la fenêtre */
+    width: auto;  /* Laisser la largeur se calculer automatiquement en fonction de l'aspect ratio */
+    height: auto;  /* Garder les proportions de l'image */
     max-height: 280px;  /* Hauteur maximale du logo */
     margin-top: -20px;
     padding-bottom: 225px;
     transition: transform 0.3s ease;  /* Animation pour l'effet de survol */
-    object-fit: contain;  /* L'image garde ses proportions tout en remplissant l'espace */
+    object-fit: contain;  /* S'assurer que l'image garde ses proportions tout en remplissant l'espace */
+  
+    /* Centrage de l'image sur l'écran */
+    position: fixed;  /* Fixe l'image à l'écran */
+    top: 50%;  /* Centrer verticalement */
+    left: 50%;  /* Centrer horizontalement */
+    transform: translate(-50%, -50%);  /* Ajuste pour centrer parfaitement */
   }
   
   .ImageLogo:hover {
-    transform: scale(1.1);  /* Effet de zoom au survol */
+    transform: translate(-50%, -50%) scale(1.1);  /* Ajoute un effet de zoom au survol */
   }
   
-  /* Media Query pour ajuster le logo sur des petits écrans (comme un téléphone) */
+  /* Media Query pour ajuster le logo sur les petits écrans (tablettes et téléphones) */
   @media (max-width: 768px) {
     .ImageLogo {
-      width: 180px;  /* Réduit la largeur du logo sur les petits écrans */
+      max-width: 50vw;  /* Réduit la largeur sur les petits écrans (téléphones) */
       max-height: 200px;  /* Limite la hauteur du logo sur les petits écrans */
       padding-bottom: 150px;  /* Ajuste le padding sur les petits écrans */
     }
   }
   
-  /* Media Query pour très petits écrans (comme un téléphone mobile en portrait) */
+  /* Media Query pour très petits écrans (téléphones mobiles en portrait) */
   @media (max-width: 480px) {
     .ImageLogo {
-      width: 150px;  /* Encore plus petit sur les très petits écrans */
-      max-height: 180px;
-      padding-bottom: 100px;  /* Réduit le padding pour de très petits écrans */
+      max-width: 60vw;  /* Encore plus petit sur les très petits écrans (smartphones en portrait) */
+      max-height: 150px;  /* Limite la hauteur du logo */
+      padding-bottom: 100px;  /* Réduit le padding sur les très petits écrans */
     }
   }
   
@@ -611,7 +624,7 @@ span.single-timeline-horizontal.spacial-horizontal-line {width: 88px;}
 .tooltip > .tooltip-inner {
    background-color: transparent;
    padding: 1px 5px;
-   color: #427fc4;
+   color: #99b4d4;
    font-weight: 500;
    font-size: 12px;
    border-radius: 0;
